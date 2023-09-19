@@ -48,11 +48,7 @@ template RLNProof(DEPTH, MAX_ORDER) {
 
     // membership proof of g^f(0)
     var preliminaryRateCommitment <== Poseidon(2)([polynomialCoefficients[0]], n);
-    identityPathIndex <== identityPathIndex[DEPTH];
-    pathElements <== pathElements[DEPTH];
-
-    root <== MerkleTreeInclusionProof(DEPTH)
-    (preliminaryRateCommitment, identityPathIndex, pathElements);
+    root <== MerkleTreeInclusionProof(DEPTH)(preliminaryRateCommitment, identityPathIndex, pathElements);
 
     
     // Ci=0 when i >= n+1
